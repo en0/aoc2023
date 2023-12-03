@@ -1,3 +1,7 @@
+aoc2023:
+  day: 1
+  part: 1
+
 logging:
   pattern:
     console: '%d{"HH:mm:ss"} [%p] [%t:%C{0}] %msg%n'
