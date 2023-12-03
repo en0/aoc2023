@@ -1,4 +1,4 @@
-package com.ilaird.aoc2023.day00;
+package com.ilaird.aoc2023.day03;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,8 +9,8 @@ import com.ilaird.aoc2023.aoc.Solver;
 import com.ilaird.aoc2023.aoc.SolverError;
 
 @Component
-@AocSolution(day = 0, part = 2)
-class D0P2Solver implements Solver {
+@AocSolution(day = 3, part = 2)
+class D3P2Solver implements Solver {
 
     @Autowired
     private PuzzleInput<String> input;
