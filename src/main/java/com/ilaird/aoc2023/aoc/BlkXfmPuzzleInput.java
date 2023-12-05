@@ -1,6 +1,5 @@
 package com.ilaird.aoc2023.aoc;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
 
-public abstract class PuzzleInput<T> implements Iterable<T> {
+public abstract class BlkXfmPuzzleInput<T> implements Iterable<T> {
 
-    private static final Logger logger = LoggerFactory.getLogger(PuzzleInput.class);
+    private static final Logger logger = LoggerFactory.getLogger(BlkXfmPuzzleInput.class);
 
     @Value("#{puzzleInputConfig.puzzleInput}")
     String[] puzzleInput;
@@ -26,12 +25,6 @@ public abstract class PuzzleInput<T> implements Iterable<T> {
         }
     }
 
-    private List<T> transformAll(String[] inputs) throws TransformError {
-        var ret = new ArrayList<T>();
-        for (int i = 0; i < inputs.length; i++)
-            ret.add(transform(inputs[i]));
-        return ret;
-    }
+    public abstract List<T> transformAll(String[] inputs) throws TransformError;
 
-    public abstract T transform(String input) throws TransformError;
 }

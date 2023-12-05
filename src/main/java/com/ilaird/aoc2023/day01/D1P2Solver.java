@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ilaird.aoc2023.aoc.AocSolution;
-import com.ilaird.aoc2023.aoc.PuzzleInput;
 import com.ilaird.aoc2023.aoc.SolverError;
 
 @Component
@@ -16,7 +15,7 @@ import com.ilaird.aoc2023.aoc.SolverError;
 class D1P2Solver extends D1P1Solver {
 
     @Autowired
-    PuzzleInput<String> input;
+    private Iterable<String> input;
 
     @Override
     public int solve() throws SolverError {

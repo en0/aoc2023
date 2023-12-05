@@ -10,7 +10,7 @@ import com.ilaird.aoc2023.aoc.PartSolverTestBase;
 public abstract class PartSolverTestBase<T> {
 
     protected Solver unit;
-    protected PuzzleInput<T> parser;
+    protected Iterable<T> parser;
     protected int answer;
     protected String[] sample;
     private boolean mocksInitialized = false;

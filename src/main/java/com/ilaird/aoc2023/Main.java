@@ -32,7 +32,7 @@ public class Main implements CommandLineRunner {
     @Value("${aoc2023.part}")
     private int part;
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         try {
             setSystemProperties(args);
         } catch (StartupException ex) {
@@ -40,7 +40,7 @@ public class Main implements CommandLineRunner {
             System.exit(1);
         }
         SpringApplication.run(Main.class, args);
-	}
+    }
 
     private static void setSystemProperties(String[] args) throws StartupException {
         ApplicationArguments arguments = new DefaultApplicationArguments(args);

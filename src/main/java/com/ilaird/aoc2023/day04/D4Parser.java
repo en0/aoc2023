@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
 
-import com.ilaird.aoc2023.aoc.PuzzleInput;
+import com.ilaird.aoc2023.aoc.LnXfmPuzzleInput;
 import com.ilaird.aoc2023.aoc.TransformError;
 
 @Component
-class D4Parser extends PuzzleInput<ScratchCard> {
+class D4Parser extends LnXfmPuzzleInput<ScratchCard> {
 
     Pattern pattern = Pattern.compile("Card\\s+(\\d+):\\s*([^|]+)\\s*\\|\\s*(.*)");
 

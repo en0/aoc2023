@@ -4,11 +4,11 @@ import java.util.LinkedList;
 
 import org.springframework.stereotype.Component;
 
-import com.ilaird.aoc2023.aoc.PuzzleInput;
+import com.ilaird.aoc2023.aoc.LnXfmPuzzleInput;
 import com.ilaird.aoc2023.aoc.TransformError;
 
 @Component
-class D3PuzzleInput extends PuzzleInput<GridRow> {
+class D3PuzzleInput extends LnXfmPuzzleInput<GridRow> {
 
     @Override
     public GridRow transform(String input) throws TransformError {

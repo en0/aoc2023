@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
 
-import com.ilaird.aoc2023.aoc.PuzzleInput;
+import com.ilaird.aoc2023.aoc.LnXfmPuzzleInput;
 import com.ilaird.aoc2023.aoc.TransformError;
 
 @Component
-class D2PuzzleInput extends PuzzleInput<Game> {
+class D2PuzzleInput extends LnXfmPuzzleInput<Game> {
 
     Pattern pattern = Pattern.compile("game (\\d+): (.*)", Pattern.CASE_INSENSITIVE);
 
