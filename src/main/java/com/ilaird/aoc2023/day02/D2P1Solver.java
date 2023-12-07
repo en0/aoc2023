@@ -23,7 +23,7 @@ class D2P1Solver implements Solver {
     private Iterable<Game> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
         int ret = 0;
         for (Game game : input) {
             if (isGamePossible(game))

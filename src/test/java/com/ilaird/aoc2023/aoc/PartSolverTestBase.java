@@ -11,7 +11,7 @@ public abstract class PartSolverTestBase<T> {
 
     protected Solver unit;
     protected Iterable<T> parser;
-    protected int answer;
+    protected long answer;
     protected String[] sample;
     private boolean mocksInitialized = false;
 

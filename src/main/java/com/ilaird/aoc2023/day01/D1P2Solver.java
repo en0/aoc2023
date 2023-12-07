@@ -18,7 +18,7 @@ class D1P2Solver extends D1P1Solver {
     private Iterable<String> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
         int total = 0;
         var wordDigits = Map.of(
             "one", '1', "two", '2', "three", '3',

@@ -59,7 +59,7 @@ def write_solution(day, part, testcase):
             "    private Iterable<String> input;",
             "",
             "    @Override",
-            "    public int solve() throws SolverError {",
+            "    public long solve() throws SolverError {",
             "        var ret = 0;",
             "        for (String line : input) {",
             "            ret += line.length();",

@@ -18,7 +18,7 @@ class D4P2Solver implements Solver {
     private Iterable<ScratchCard> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
 
         var cards = new ArrayList<ScratchCard>();
         input.forEach(c -> cards.add(c));

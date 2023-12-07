@@ -12,10 +12,18 @@ import com.ilaird.aoc2023.aoc.SolverError;
 class D5P1Solver implements Solver {
 
     @Autowired
-    private Iterable<String> input;
+    private Iterable<Almanac> input;
 
     @Override
-    public int solve() throws SolverError {
-        return 35;
+    public long solve() throws SolverError {
+        var ret = Long.MAX_VALUE;
+        var almanac = input.iterator().next();
+        for (var seed : almanac.seeds) {
+            var v = seed;
+            for (var map : almanac.maps)
+                v = map.getTarget(v);
+            ret = Math.min(v, ret);
+        }
+        return ret;
     }
 }

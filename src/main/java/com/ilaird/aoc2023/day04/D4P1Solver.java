@@ -15,7 +15,7 @@ class D4P1Solver implements Solver {
     private Iterable<ScratchCard> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
         var ret = 0;
         for (ScratchCard card : input)
             ret += Math.pow(2, card.getValue() - 1);

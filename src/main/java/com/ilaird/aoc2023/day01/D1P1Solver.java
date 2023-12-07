@@ -15,7 +15,7 @@ class D1P1Solver implements Solver {
     private Iterable<String> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
 
         int total = 0;
         for (String line : input) {

@@ -18,7 +18,7 @@ class D3P2Solver implements Solver {
     private Iterable<GridRow> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
 
         var ret = 0;
         var grid = new Grid();

@@ -17,7 +17,7 @@ class D3P1Solver implements Solver {
     private Iterable<GridRow> input;
 
     @Override
-    public int solve() throws SolverError {
+    public long solve() throws SolverError {
         var ret = 0;
         var grid = new Grid();
         var seen = new HashSet<>();
