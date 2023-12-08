@@ -60,7 +60,7 @@ def write_solution(day, part, testcase):
             "",
             "    @Override",
             "    public long solve() throws SolverError {",
-            "        var ret = 0;",
+            "        var ret = 0L;",
             "        for (String line : input) {",
             "            ret += line.length();",
             "        }",
