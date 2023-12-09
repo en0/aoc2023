@@ -4,25 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.springframework.beans.factory.annotation.Value;
-
 
 class Hand implements Comparable<Hand>{
 
-    public int bid;
-    public Card[] hand;
+    public final int bid;
+    public final Card[] hand;
     protected HandType handType;
 
     public static Hand newP1(Card[] hand, int bid) {
         var ret = new Hand(hand, bid);
-        ret.evalP1();
+        ret.eval();
         return ret;
     }
 
     private Hand(Card[] hand, int bid) {
         this.hand = hand;
         this.bid = bid;
-        this.evalP1();
     }
 
     @Override
@@ -55,7 +52,7 @@ class Hand implements Comparable<Hand>{
         return ret;
     }
 
-    private final void evalP1() {
+    private final void eval() {
 
         var c = 1;
         var counts = new ArrayList<Integer>();
@@ -63,10 +60,15 @@ class Hand implements Comparable<Hand>{
 
         Arrays.sort(hand1);
 
+        var w = hand1[0] == Card.CW ? 1 : 0;
+
         for (int i = 1; i < hand1.length; i++) {
-            if (hand1[i] == hand1[i-1])
+            if (hand1[i] == Card.CW) {
+                w++;
+                c = 1;
+            } else if (hand1[i] == hand1[i-1]) {
                 c++;
-            else {
+            } else {
                 counts.add(c);
                 c = 1;
             }
@@ -76,10 +78,14 @@ class Hand implements Comparable<Hand>{
         counts.add(0);
         Collections.sort(counts, Collections.reverseOrder());
 
-        var h1 = counts.get(0);
+        var h1 = counts.get(0) + w;
         var h2 = counts.get(1);
+        System.out.println("h1=" + h1 + " h2=" + h2 + " j=" + w + " count=" + counts.get(0));
 
-        if (h1 == 5)
+        if (h1 == 6)
+            // hack to work around a bug for part2
+            handType = HandType.FiveOfKind;
+        else if (h1 == 5)
             handType = HandType.FiveOfKind;
         else if (h1 == 4)
             handType = HandType.FourOfKind;

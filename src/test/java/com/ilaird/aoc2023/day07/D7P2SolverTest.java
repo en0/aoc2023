@@ -9,7 +9,7 @@ class D7P2SolverTest extends PartSolverTestBase<Hand> {
     @BeforeEach
     void setUp() {
         unit = new D7P2Solver();
-        parser = new D7Parser();
+        parser = new D7P2Parser();
         answer = 5905;
         sample = new String[] {
             "32T3K 765",

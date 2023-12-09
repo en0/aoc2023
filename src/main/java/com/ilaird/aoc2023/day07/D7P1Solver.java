@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.ilaird.aoc2023.aoc.AocSolution;
@@ -16,10 +17,15 @@ import com.ilaird.aoc2023.aoc.SolverError;
 class D7P1Solver implements Solver {
 
     @Autowired
+    @Qualifier("d7p1")
     private Iterable<Hand> input;
 
     @Override
     public long solve() throws SolverError {
+        return solveWithInput(input);
+    }
+
+    long solveWithInput(Iterable<Hand> input) {
         var ret = 0L;
         List<Hand> hands = new ArrayList<>();
         input.forEach(h -> hands.add(h));
