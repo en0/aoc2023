@@ -1,6 +1,9 @@
 package com.ilaird.aoc2023.day08;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.ilaird.aoc2023.aoc.PartSolverTestBase;
 import com.ilaird.aoc2023.aoc.StringPuzzleInput;
@@ -25,5 +28,26 @@ class D8P1SolverTest extends PartSolverTestBase<String> {
         };
 
         initMocks();
+    }
+
+    @Test
+    void testMoveIterator() {
+        var mi = new MoveIterator("LLR");
+        assertEquals(0, mi.next());
+        assertEquals(0, mi.next());
+        assertEquals(1, mi.next());
+        assertEquals(0, mi.next());
+        assertEquals(0, mi.next());
+        assertEquals(1, mi.next());
+
+    }
+
+    @Test
+    void testMoveIteratorInit() {
+        var mi = new MoveIterator(parser.iterator().next());
+        assertEquals(1, mi.next());
+        assertEquals(0, mi.next());
+        assertEquals(1, mi.next());
+        assertEquals(0, mi.next());
     }
 }
