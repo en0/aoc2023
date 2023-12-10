@@ -1,16 +1,19 @@
 package com.ilaird.aoc2023.day09;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import com.ilaird.aoc2023.aoc.IntegerArrayPuzzleInput;
 import com.ilaird.aoc2023.aoc.PartSolverTestBase;
-import com.ilaird.aoc2023.aoc.StringPuzzleInput;
 
-class D9P1SolverTest extends PartSolverTestBase<String> {
+class D9P1SolverTest extends PartSolverTestBase<Integer[]> {
 
     @BeforeEach
     void setUp() {
         unit = new D9P1Solver();
-        parser = new StringPuzzleInput();
+        parser = new IntegerArrayPuzzleInput();
         answer = 114;
         sample = new String[] {
             "0 3 6 9 12 15",
@@ -19,5 +22,17 @@ class D9P1SolverTest extends PartSolverTestBase<String> {
         };
 
         initMocks();
+    }
+
+    @Test
+    void testEstimator() {
+        var e = new Estimator(new Integer[] {1, 3, 6, 10, 15, 21}, null);
+        assertEquals(28, e.getEstimate());
+    }
+
+    @Test
+    void testEstimatorThatHasToGoAllTheWayDown() {
+        var e = new Estimator(new Integer[] {1, 3}, null);
+        assertEquals(5, e.getEstimate());
     }
 }

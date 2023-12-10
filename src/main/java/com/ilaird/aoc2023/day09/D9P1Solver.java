@@ -12,10 +12,17 @@ import com.ilaird.aoc2023.aoc.SolverError;
 class D9P1Solver implements Solver {
 
     @Autowired
-    private Iterable<String> input;
+    private Iterable<Integer[]> input;
 
     @Override
     public long solve() throws SolverError {
-        return 114;
+        var ret = 0;
+        for (Integer[] n : input)
+            ret += getEstimate(n);
+        return ret;
+    }
+
+    long getEstimate(Integer[] n) {
+        return new Estimator(n, null).getEstimate();
     }
 }
