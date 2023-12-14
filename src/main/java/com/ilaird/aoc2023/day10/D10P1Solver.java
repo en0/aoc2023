@@ -3,6 +3,7 @@ package com.ilaird.aoc2023.day10;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import com.ilaird.aoc2023.aoc.Point;
 @AocSolution(day = 10, part = 1)
 class D10P1Solver implements Solver {
 
-    class G {
+    class G implements Iterable<Point> {
 
         Map<Point, List<Point>> adjList;
 
@@ -43,12 +44,18 @@ class D10P1Solver implements Solver {
         Set<Point> getAdjVertices(Point v) {
             return new HashSet<>(adjList.getOrDefault(v, List.of()));
         }
+
+        @Override
+        public Iterator<Point> iterator() {
+            return adjList.keySet().iterator();
+        }
+
     }
 
     @Autowired
-    private Iterable<CharPoint> input;
-    private G graph = new G();
-    private Map<Point, Character> charMap = new HashMap<>();
+    protected Iterable<CharPoint> input;
+    protected G graph = new G();
+    protected Map<Point, Character> charMap = new HashMap<>();
 
     @Override
     public long solve() throws SolverError {
@@ -133,6 +140,21 @@ class D10P1Solver implements Solver {
 
         if (Set.of('-', 'L', 'F').contains(charMap.getOrDefault(start.pointLeft(), '.')))
             graph.addEdge(start, start.pointLeft());
+
+        // For part 2, its helpful to replace 'S' with the correct pipe character.
+        var s = new HashSet<>(graph.getAdjVertices(start));
+        if (s.containsAll(List.of(start.pointAbove(), start.pointBelow())))
+            charMap.put(start, '|');
+        else if (s.containsAll(List.of(start.pointAbove(), start.pointRight())))
+            charMap.put(start, 'L');
+        else if (s.containsAll(List.of(start.pointAbove(), start.pointLeft())))
+            charMap.put(start, 'J');
+        else if (s.containsAll(List.of(start.pointLeft(), start.pointRight())))
+            charMap.put(start, '-');
+        else if (s.containsAll(List.of(start.pointLeft(), start.pointBelow())))
+            charMap.put(start, '7');
+        else if (s.containsAll(List.of(start.pointRight(), start.pointBelow())))
+            charMap.put(start, 'F');
 
         return start;
     }

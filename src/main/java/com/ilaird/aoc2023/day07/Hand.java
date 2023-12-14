@@ -80,7 +80,6 @@ class Hand implements Comparable<Hand>{
 
         var h1 = counts.get(0) + w;
         var h2 = counts.get(1);
-        System.out.println("h1=" + h1 + " h2=" + h2 + " j=" + w + " count=" + counts.get(0));
 
         if (h1 == 6)
             // hack to work around a bug for part2

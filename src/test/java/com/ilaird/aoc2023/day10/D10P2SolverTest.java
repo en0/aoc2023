@@ -2,15 +2,16 @@ package com.ilaird.aoc2023.day10;
 
 import org.junit.jupiter.api.BeforeEach;
 
+import com.ilaird.aoc2023.aoc.CharPoint;
+import com.ilaird.aoc2023.aoc.CharPointPuzzleInput;
 import com.ilaird.aoc2023.aoc.PartSolverTestBase;
-import com.ilaird.aoc2023.aoc.StringPuzzleInput;
 
-class D10P2SolverTest extends PartSolverTestBase<String> {
+class D10P2SolverTest extends PartSolverTestBase<CharPoint> {
 
     @BeforeEach
     void setUp() {
         unit = new D10P2Solver();
-        parser = new StringPuzzleInput();
+        parser = new CharPointPuzzleInput();
         answer = 10;
         sample = new String[] {
             "FF7FSF7F7F7F7F7F---7",
