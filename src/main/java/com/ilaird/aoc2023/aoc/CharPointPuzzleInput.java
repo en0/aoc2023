@@ -3,8 +3,10 @@ package com.ilaird.aoc2023.aoc;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+@Primary
 @Component
 public class CharPointPuzzleInput extends BlkXfmPuzzleInput<CharPoint> {
 
